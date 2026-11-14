@@ -1,0 +1,4 @@
+# dsh-docs-manager bundle patch
+- insert:
+    - id: dsh-docs-manager
+      name: 'dsh-docs-manager'

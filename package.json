@@ -1,0 +1,56 @@
+{
+  "name": "dsh-docs-manager",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Markdown document manager for DeepSeek Harness: one card row per folder, rich-text editing, quick capture from chat. · DSH 文档管理：按目录分行的 Markdown 卡片墙，支持编辑与从会话一键记录。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "markdown",
+    "docs",
+    "notes"
+  ],
+  "author": "xiaojiaxin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RebaseRonin/dsh-docs-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RebaseRonin/dsh-docs-manager/issues"
+  },
+  "homepage": "https://github.com/RebaseRonin/dsh-docs-manager#readme",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "assets/",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    }
+  }
+}
