@@ -15,12 +15,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RebaseRonin/dsh-docs-manager.git"
+    "url": "git+https://github.com/xiao0o0/dsh-docs-manager.git"
   },
   "bugs": {
-    "url": "https://github.com/RebaseRonin/dsh-docs-manager/issues"
+    "url": "https://github.com/xiao0o0/dsh-docs-manager/issues"
   },
-  "homepage": "https://github.com/RebaseRonin/dsh-docs-manager#readme",
+  "homepage": "https://github.com/xiao0o0/dsh-docs-manager#readme",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
