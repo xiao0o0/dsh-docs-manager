@@ -41,6 +41,8 @@ Host 半体通过 `webServer` 注册 `/docs-manager/api/*`：
 
 所有路径解析都限制在根目录内，且只接受 `.md` / `.markdown`；写入统一 UTF-8。
 
+每个请求都先过 Connection 服务的 Host / Origin 校验与浏览器身份认证（`ctx.connection.requestRejection`），浏览器里打开的其它网页无法调用这些接口。
+
 ## 安装
 
 ```sh

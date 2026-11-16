@@ -232,8 +232,25 @@ async function handleSetConfig(body) {
   return { ok: true, root: resolved }
 }
 
+/**
+ * Apply Connection's Host/Origin checks and browser authentication to this
+ * route. Without it any web page the user has open could call it, because
+ * `webServer.register` routes bypass the admission the API channel gets.
+ * Returns 401/403 when the request must not be served, undefined when the
+ * runtime offers no check to apply.
+ */
+function trustRejection(ctx, req) {
+  const connection = ctx.get('connection')
+  if (!connection || typeof connection.requestRejection !== 'function') return undefined
+  return connection.requestRejection({ headers: req.headers })
+}
+
 export function apply(ctx) {
   const handler = async (req, res) => {
+    const rejection = trustRejection(ctx, req)
+    if (rejection !== undefined) {
+      return send(res, rejection, { ok: false, error: rejection === 401 ? '未授权访问' : '来源不受信任' })
+    }
     try {
       const url = new URL(req.url ?? '/', 'http://docs-manager.local')
       const action = url.pathname.slice(API_PREFIX.length).replace(/^\/+/, '').replace(/\/+$/, '')

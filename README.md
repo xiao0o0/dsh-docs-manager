@@ -51,6 +51,8 @@ The Host half registers `/docs-manager/api/*` on the `webServer` service:
 | `/config` | GET / POST | read or change the root directory |
 | `/open-root` | POST | opens the root in the system file manager |
 
+Every request passes the Connection service's Host/Origin checks and browser authentication first (`ctx.connection.requestRejection`), so a web page open in the same browser cannot call these routes.
+
 ## Screenshots
 
 | Capture from chat | Card colors |

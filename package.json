@@ -1,6 +1,6 @@
 {
   "name": "dsh-docs-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Markdown document manager for DeepSeek Harness: one card row per folder, rich-text editing, quick capture from chat. · DSH 文档管理：按目录分行的 Markdown 卡片墙，支持编辑与从会话一键记录。",
   "keywords": [
